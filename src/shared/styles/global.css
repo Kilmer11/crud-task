@@ -63,7 +63,6 @@ p {
 
 button {
   font-family: inherit;
-  font-size: 1.6rem;
   cursor: pointer;
   border: none;
   background-color: var(--primary);
@@ -87,9 +86,6 @@ select {
   line-height: 1;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #007bff; /* VARIÁVEL */
-  outline: none;
+input::placeholder {
+  color: var(--placeholder);
 }

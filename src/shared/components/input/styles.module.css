@@ -1,0 +1,23 @@
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputDiv label {
+  line-height: 1.2;
+  font-size: 1.6rem;
+  color: var(--text-secondary);
+}
+
+.inputDiv input {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem 0.5rem;
+
+  color: var(--placeholder);
+}
+
+.inputDiv input:focus {
+  border: 1px solid var(--text-primary);
+  outline: none;
+}
