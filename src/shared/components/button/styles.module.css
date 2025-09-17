@@ -4,10 +4,11 @@
   align-items: center;
 
   padding: 1rem 2rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 }
 
 .button p {
   color: var(--background);
+  font-size: 1.6rem;
   font-weight: 600;
 }

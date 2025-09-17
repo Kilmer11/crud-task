@@ -1,0 +1,15 @@
+.divLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 2rem;
+}
+
+.divLinks a {
+  font-size: 1.4rem;
+}
+
+.blackLink {
+  color: var(--text-secondary);
+}

@@ -5,11 +5,11 @@ type InputProps = {
   labelText: string;
 } & React.ComponentProps<'input'>;
 
-export function Input({ id, labelText, ...props }: InputProps) {
+export function Input({ id, type, labelText, ...props }: InputProps) {
   return (
     <div className={styles.inputDiv}>
       <label htmlFor={id}>{labelText}</label>
-      <input id={id} {...props} />
+      <input id={id} type={type} {...props} />
     </div>
   );
 }
