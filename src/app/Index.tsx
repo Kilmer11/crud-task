@@ -1,12 +1,13 @@
 import '../shared/styles/global.css';
 import '../shared/styles/root-colors.css';
 
-import { Login } from '../features/auth/pages/login';
+import { BrowserRouter } from 'react-router-dom';
+import { AppRoutes } from './routes/appRoutes';
 
 export function Index() {
   return (
-    <>
-      <Login />
-    </>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }
