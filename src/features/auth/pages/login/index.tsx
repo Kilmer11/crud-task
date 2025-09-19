@@ -30,7 +30,7 @@ export function Login() {
         <a href='#'>Create a account</a>
       </section>
 
-      <Button text='Send' />
+      <Button>Send</Button>
     </FormTemplate>
   );
 }

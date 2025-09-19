@@ -7,8 +7,7 @@
   border-radius: 1rem;
 }
 
-.button p {
+.button h4 {
   color: var(--background);
-  font-size: 1.6rem;
   font-weight: 600;
 }

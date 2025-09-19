@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -14,7 +19,6 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 1.6rem;
   line-height: 1.2;
-  height: 100%;
   color: var(--text-primary);
   background-color: var(--background);
   -webkit-font-smoothing: antialiased;
@@ -24,7 +28,7 @@ body {
 img,
 svg {
   display: block;
-  height: 100%;
+  height: auto;
   max-width: 100%;
   object-fit: cover;
   object-position: center;
@@ -43,23 +47,31 @@ a:focus {
 }
 
 h1 {
-  font-size: 3.2rem;
+  font-size: 2.6rem;
   font-weight: 700;
 }
 
 h2 {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 1.6rem;
   font-weight: 500;
 }
 
 p {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 400;
+
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 button {
@@ -81,10 +93,9 @@ input,
 textarea,
 select {
   font-family: inherit;
-  font-size: 1.6rem;
+  line-height: 1;
   outline: none;
   transition: border-color 0.2s ease-in-out;
-  line-height: 1;
 }
 
 input::placeholder {

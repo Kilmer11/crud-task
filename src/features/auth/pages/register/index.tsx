@@ -28,7 +28,7 @@ export function Register() {
         placeholder='Type your password'
       />
 
-      <Button text='Send' />
+      <Button>Send</Button>
     </FormTemplate>
   );
 }

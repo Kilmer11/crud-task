@@ -1,0 +1,53 @@
+.taskModal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  flex: 1;
+}
+
+.taskCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 2rem 2rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+}
+
+.taskCard:hover {
+  border: 1px solid var(--text-primary);
+  transition: border 200ms ease-in-out;
+}
+
+.text h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.text p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.taskModal button {
+  background-color: transparent;
+  font-size: 1.4rem;
+}
+
+.edit {
+  color: var(--primary);
+}
+
+.delete {
+  color: var(--warning);
+}

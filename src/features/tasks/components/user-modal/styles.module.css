@@ -1,0 +1,26 @@
+.userModal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  width: 100%;
+  max-width: 25rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  padding: 3rem 1rem;
+}
+
+.divImage {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 100%;
+  background-color: var(--primary);
+  margin: 0 auto;
+}
+
+.text p {
+  max-width: max-content;
+  margin-top: 0.5rem;
+  color: var(--text-secondary);
+}

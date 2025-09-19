@@ -1,10 +1,12 @@
 import { PrivateRoute } from './privateRoute';
+import { Home } from '../../features/tasks/pages/home';
 import { Login } from '../../features/auth/pages/login';
 import { Register } from '../../features/auth/pages/register';
 
 import { Route, Routes } from 'react-router-dom';
 
 const routes = [
+  { path: '/', element: <Home />, isClosed: false },
   { path: '/login', element: <Login />, isClosed: false },
   { path: '/register', element: <Register />, isClosed: false },
 ];

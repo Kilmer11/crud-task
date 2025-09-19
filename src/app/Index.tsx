@@ -1,5 +1,5 @@
 import '../shared/styles/global.css';
-import '../shared/styles/root-colors.css';
+import '../shared/styles/theme-colors.css';
 
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes/appRoutes';
