@@ -1,4 +1,4 @@
-import type { AuthModel } from '../../../shared/types/authModel';
+import type { AuthModel } from '../../types/authModel';
 import { AuthTypes, type AuthActionModel } from './authActions';
 
 export function authReducer(state: AuthModel, action: AuthActionModel) {

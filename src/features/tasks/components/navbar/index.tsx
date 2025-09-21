@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 
-import { Button } from '../../../../shared/components/button';
+import { Button } from '../../../../components/button';
 
 export function Navbar() {
   return (

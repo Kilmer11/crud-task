@@ -1,7 +1,7 @@
+import { Home } from '../pages/home';
+import { Login } from '../pages/login';
+import { Register } from '../pages/register';
 import { PrivateRoute } from './privateRoute';
-import { Home } from '../../features/tasks/pages/home';
-import { Login } from '../../features/auth/pages/login';
-import { Register } from '../../features/auth/pages/register';
 
 import { Route, Routes } from 'react-router-dom';
 

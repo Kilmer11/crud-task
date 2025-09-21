@@ -1,18 +1,13 @@
-import { Button } from '../../../../shared/components/button';
-import { Input } from '../../../../shared/components/input';
-import { FormTemplate } from '../../template';
+import styles from './styles.module.css';
 
-export function Register() {
+import { FormTemplate } from '../../template';
+import { Input } from '../../components/input';
+import { Button } from '../../components/button';
+
+export function Login() {
   return (
     <FormTemplate>
       <h2>Entrar</h2>
-
-      <Input
-        id='name'
-        labelText='Name'
-        type='text'
-        placeholder='Type your name'
-      />
 
       <Input
         id='email'
@@ -27,6 +22,13 @@ export function Register() {
         type='text'
         placeholder='Type your password'
       />
+
+      <section className={styles.divLinks}>
+        <a href='#' className={styles.blackLink}>
+          Remember me
+        </a>
+        <a href='#'>Create a account</a>
+      </section>
 
       <Button>Send</Button>
     </FormTemplate>

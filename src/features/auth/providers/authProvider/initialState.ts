@@ -1,4 +1,4 @@
-import type { AuthModel } from '../../../shared/types/authModel';
+import type { AuthModel } from '../../types/authModel';
 
 export const initialStateAuth: AuthModel = {
   user: [],

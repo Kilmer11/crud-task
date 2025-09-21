@@ -1,4 +1,4 @@
-import type { AuthModel } from '../../../shared/types/authModel';
+import type { AuthModel } from '../../types/authModel';
 
 export enum AuthTypes {
   LOGIN_REQUEST = 'LOGIN_REQUEST',
