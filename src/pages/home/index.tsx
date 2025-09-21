@@ -1,8 +1,7 @@
+import { Navbar } from '../../features/tasks/components/navbar';
+import { TaskModal } from '../../features/tasks/components/task-modal';
+import { UserModal } from '../../features/tasks/components/user-modal';
 import styles from './styles.module.css';
-
-import { Navbar } from '../../components/navbar';
-import { TaskModal } from '../../components/task-modal';
-import { UserModal } from '../../components/user-modal';
 
 export function Home() {
   return (
