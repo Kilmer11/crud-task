@@ -11,3 +11,27 @@
   color: var(--background);
   font-weight: 600;
 }
+
+.small {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.small h4 {
+  font-weight: 400;
+}
+
+.cancel {
+  background-color: var(--modal-color);
+  border: 2px solid var(--border);
+  transition: all 100ms ease-in-out;
+}
+
+.cancel:hover {
+  background-color: inherit;
+  border: 2px solid var(--text-secondary);
+}
+
+.cancel h4 {
+  color: var(--text-secondary);
+}

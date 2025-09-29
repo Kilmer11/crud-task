@@ -96,9 +96,12 @@ select {
   line-height: 1;
   outline: none;
   transition: border-color 0.2s ease-in-out;
+  color: var(--text-secondary);
+  font-size: 1.6rem;
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
   font-size: 1.4rem;
   color: var(--placeholder);
 }
