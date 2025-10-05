@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type AuthModel = {
-  user: unknown[];
+  user: any[];
   isLoggedIn: boolean;
   isLoading: boolean;
-  error: unknown;
+  error: any;
 };

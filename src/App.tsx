@@ -3,10 +3,12 @@ import './styles/theme-colors.css';
 
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes/appRoutes';
+import { MessageContainer } from './components/messageContainer';
 
 export function Index() {
   return (
     <BrowserRouter>
+      <MessageContainer />
       <AppRoutes />
     </BrowserRouter>
   );

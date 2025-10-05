@@ -1,10 +1,14 @@
 import { Button } from '../../components/button';
 import { Input } from '../../components/input';
-import { FormTemplate } from '../../template';
+import { FormTemplate } from '../../template/formTemplate';
 
 export function Register() {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+  }
+
   return (
-    <FormTemplate>
+    <FormTemplate onSubmit={handleSubmit}>
       <h2>Entrar</h2>
 
       <Input

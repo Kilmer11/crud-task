@@ -5,7 +5,7 @@ import { Button } from '../../components/button';
 export function FormTask() {
   return (
     <div className={styles.divForm}>
-      <div className={styles.formTask}>
+      <form className={styles.formTask}>
         <h2>Create task</h2>
 
         <textarea
@@ -19,7 +19,7 @@ export function FormTask() {
           </Button>
           <Button size='small'>Save</Button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
