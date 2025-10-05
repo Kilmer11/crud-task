@@ -1,12 +1,16 @@
 import styles from './styles.module.css';
 
-import { FormTemplate } from '../../template';
+import { FormTemplate } from '../../template/formTemplate';
 import { Input } from '../../components/input';
 import { Button } from '../../components/button';
 
 export function Login() {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+  }
+
   return (
-    <FormTemplate>
+    <FormTemplate onSubmit={handleSubmit}>
       <h2>Entrar</h2>
 
       <Input
