@@ -15,7 +15,8 @@ export function Register() {
         id='name'
         labelText='Name'
         type='text'
-        placeholder='Type your name'
+        placeholder='Type your full name'
+        title='Type your full name'
       />
 
       <Input
@@ -23,6 +24,7 @@ export function Register() {
         labelText='Email'
         type='text'
         placeholder='Type your email'
+        title='Type your email'
       />
 
       <Input
@@ -30,6 +32,7 @@ export function Register() {
         labelText='Password'
         type='text'
         placeholder='Type your password'
+        title='Type your password'
       />
 
       <Button>Send</Button>

@@ -18,6 +18,7 @@ export function Login() {
         labelText='Email'
         type='text'
         placeholder='Type your email'
+        title='email'
       />
 
       <Input
@@ -25,6 +26,7 @@ export function Login() {
         labelText='Password'
         type='text'
         placeholder='Type your password'
+        title='password'
       />
 
       <section className={styles.divLinks}>
