@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+export type UserModel = {
+  user: string;
+  email: string;
+};
+
 export type AuthModel = {
-  user: { user: string; email: string }[];
+  userData: UserModel;
   isLoggedIn: boolean;
   isLoading: boolean;
   error: any;
