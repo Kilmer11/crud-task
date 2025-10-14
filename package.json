@@ -12,13 +12,16 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.7",
+    "@hookform/resolvers": "^5.2.2",
     "axios": "^1.12.2",
     "lucide-react": "^0.544.0",
     "prettier": "^3.6.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-hook-form": "^7.65.0",
     "react-router-dom": "^7.9.1",
-    "react-toastify": "^11.0.5"
+    "react-toastify": "^11.0.5",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

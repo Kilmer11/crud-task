@@ -74,6 +74,11 @@ p {
   white-space: normal;
 }
 
+span {
+  font-size: 1.25rem;
+  color: var(--warning);
+}
+
 button {
   font-family: inherit;
   cursor: pointer;
