@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import { showMessage } from '../adapters/showMessage';
 import { api } from './axios';
 
@@ -16,8 +17,10 @@ export async function authRegister(
     showMessage.success('Usuário cadastrado com sucesso!');
 
     return true;
-  } catch (error: unknown) {
-    showMessage.error(`Erro ao cadastrar o usuário`);
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      showMessage.error(`${error.response?.status && 'Email already exists!'}`);
+    }
 
     return false;
   }
