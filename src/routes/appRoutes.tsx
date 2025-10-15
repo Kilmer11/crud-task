@@ -11,6 +11,7 @@ const routes = [
   { path: '/login', element: <Login />, isClosed: false },
   { path: '/register', element: <Register />, isClosed: false },
   { path: '/create/task', element: <FormTask />, isClosed: false },
+  { path: '*', element: <Home />, isClosed: false },
 ];
 
 export function AppRoutes() {

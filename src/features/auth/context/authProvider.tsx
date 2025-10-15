@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
-import { authReducer } from './authReducer';
-import { initialStateAuth } from './initialState';
+import { AuthReducer } from './authReducer';
+import { initialAuthState } from './initialState';
 import { AuthContext } from './authContext';
 
 type AuthProviderProps = {
@@ -8,10 +8,10 @@ type AuthProviderProps = {
 };
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [auth, dispatch] = useReducer(authReducer, initialStateAuth);
+  const [state, dispatch] = useReducer(AuthReducer, initialAuthState);
 
   return (
-    <AuthContext.Provider value={{ auth, dispatch }}>
+    <AuthContext.Provider value={{ state, dispatch }}>
       {children}
     </AuthContext.Provider>
   );
