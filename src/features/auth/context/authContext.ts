@@ -1,10 +1,10 @@
 import React, { createContext } from 'react';
 import { initialAuthState } from './initialState';
-import type { AuthModel } from '../types/authModel';
+import type { AuthState } from '../types/authModel';
 import type { AuthActionsModel } from './authActions';
 
 type AuthContextProps = {
-  state: AuthModel;
+  state: AuthState;
   dispatch: React.Dispatch<AuthActionsModel>;
 };
 

@@ -1,9 +1,5 @@
 import styles from './styles.module.css';
 
-/* type TaskModalProps = {
-  tasks?: React.ReactNode[];
-}; */
-
 export function TaskModal() {
   return (
     <div className={styles.taskModal}>

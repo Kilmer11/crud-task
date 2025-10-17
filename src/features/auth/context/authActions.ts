@@ -1,4 +1,4 @@
-import type { UserModel } from '../types/authModel';
+import type { User } from '../types/authModel';
 
 export const AuthActionTypes = {
   LOGIN: 'LOGIN',
@@ -8,7 +8,7 @@ export const AuthActionTypes = {
 export type AuthActionsModel =
   | {
       type: typeof AuthActionTypes.LOGIN;
-      payload: UserModel;
+      payload: User;
     }
   | {
       type: typeof AuthActionTypes.LOGOUT;
