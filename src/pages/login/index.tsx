@@ -1,61 +1,15 @@
 import styles from './styles.module.css';
 
-import { FormTemplate } from '../../template/formTemplate';
-import { Input } from '../../components/input';
 import { Button } from '../../components/button';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
-import { authLogin } from '../../features/auth/services/authLogin';
-import { schema } from '../../features/auth/validations/login-schema';
-import { type FormData } from '../../features/auth/validations/login-schema';
-import { useAuthContext } from '../../features/auth/hooks/useAuthContext';
-import { AuthActionTypes } from '../../features/auth/context/authActions';
-import { showMessage } from '../../adapters/showMessage';
-import { fetchUser } from '../../features/auth/services/fetchUser';
-import { AxiosError } from 'axios';
-
-type LoginFormData = {
-  email: string;
-  password: string;
-};
+import { Input } from '../../components/input';
+import { useLogin } from '../../features/auth/hooks/useLogin';
+import { FormTemplate } from '../../template/formTemplate';
 
 export function Login() {
-  const { dispatch } = useAuthContext();
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<FormData>({ resolver: yupResolver(schema) });
-
-  async function onsubmit(data: LoginFormData) {
-    showMessage.dismiss();
-    try {
-      await authLogin(data.email, data.password);
-      const userData = await fetchUser();
-
-      if (userData) {
-        dispatch({
-          type: AuthActionTypes.LOGIN,
-          payload: { name: userData.name, email: userData.email },
-        });
-        showMessage.success('User logged in successfully!');
-        reset();
-      } else {
-        console.log('Null ou undefined');
-      }
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        showMessage.error(`${error.response?.data.errors}`);
-      } else {
-        showMessage.error('Internal error');
-      }
-    }
-  }
+  const { register, handleSubmit, onSubmit, errors, isSubmitting } = useLogin();
 
   return (
-    <FormTemplate onSubmit={handleSubmit(onsubmit)}>
+    <FormTemplate onSubmit={handleSubmit(onSubmit)}>
       <h2>Entrar</h2>
 
       <Input
