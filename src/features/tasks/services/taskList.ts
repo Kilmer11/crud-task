@@ -8,7 +8,7 @@ export async function taskList() : Promise<any>{
         return response.data.data
     }catch (error) {
         if (error instanceof AxiosError) {
-            showMessage.error(`${error.response?.status && 'Error inserting task! try again later!'}`);
+            showMessage.error(`${error.response?.status && 'Error listing task! try again later!'}`);
         }
     }finally{
         console.log('listando tasks');
