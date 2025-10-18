@@ -1,13 +1,25 @@
 import styles from './styles.module.css';
 
-export function TaskModal() {
+export type taskModalProps = { 
+  completed: boolean
+  description: string
+}
+export function TaskModal({completed, description}: taskModalProps) {
   return (
     <div className={styles.taskModal}>
       <div className={styles.taskCard}>
         <div className={styles.content}>
           <div className={styles.text}>
-            <h3>Example task #1</h3>
-            <p>Today 18:00</p>
+            {completed == true ? 
+              <h3>{<s>description</s>}</h3>
+              :
+              <>
+                <h3>{description}</h3>
+                <p>Not done</p>
+              </>
+            }
+            
+            
           </div>
         </div>
       </div>
