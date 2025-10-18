@@ -17,7 +17,13 @@ export function AuthReducer(
     }
 
     case AuthActionTypes.LOGOUT: {
-      return state;
+      return {
+        ...state,
+        user: { name: '', email: '' },
+        isLoading: false,
+        isLoggedIn: false,
+        error: null,
+      };
     }
 
     default: {

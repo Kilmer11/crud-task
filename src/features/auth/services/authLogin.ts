@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { api } from '../../../services/axios';
 
 export async function authLogin(
