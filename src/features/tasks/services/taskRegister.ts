@@ -6,9 +6,9 @@ export async function taskRegister(description: string){
     showMessage.dismiss() 
 
     try{
-        await api.post("/tasks", {description: description});
+        await api.post("/tasks", { description: description});
         showMessage.success('Task sucessfully inserted!');
-        return true
+        return true;
     }catch (error) {
         if (error instanceof AxiosError) {
             showMessage.error(`${error.response?.status && 'Error inserting task! try again later!'}`);

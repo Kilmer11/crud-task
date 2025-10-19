@@ -9,7 +9,7 @@ import { TaskModal } from '../../features/tasks/components/task-modal';
 import { useTasks } from '../../features/tasks/hooks/useTasks';
 
 export function Home() {
-  const {tasks, loading, handleDelete} = useTasks()
+  const {tasks, loading, handleDelete, handleUpdate} = useTasks();
 
   if (loading) return <h3>Carregando</h3>
 
@@ -19,7 +19,7 @@ export function Home() {
       <div className={styles.content}>
         
         <UserModal/>
-           <List renderItem={(Task) => { return <TaskModal handleDelete={handleDelete} id={Task._id} description={Task.description} completed={Task.completed}/>}} items={tasks}/>    
+           <List renderItem={(Task) => { return <TaskModal handleUpdate={handleUpdate} handleDelete={handleDelete} id={Task._id} description={Task.description} completed={Task.completed}/>}} items={tasks}/>    
       </div>
     </div>
   );

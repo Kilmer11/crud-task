@@ -10,7 +10,5 @@ export async function taskList() : Promise<any>{
         if (error instanceof AxiosError) {
             showMessage.error(`${error.response?.status && 'Error listing task! try again later!'}`);
         }
-    }finally{
-        console.log('listando tasks');
     }
 }
