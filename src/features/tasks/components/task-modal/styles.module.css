@@ -50,4 +50,12 @@
 
 .delete {
   color: var(--warning);
+  margin-left: 1em;
 }
+
+.description{
+  display: flex;
+  gap: 0.5em;
+  flex-direction: row;
+}
+

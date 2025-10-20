@@ -12,6 +12,9 @@
   font-weight: 600;
 }
 
+.button a{
+  color: var(--background);
+}
 .small {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
