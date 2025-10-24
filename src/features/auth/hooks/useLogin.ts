@@ -7,6 +7,7 @@ import { AxiosError } from 'axios';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { schema, type FormData } from '../validations/login-schema';
+import { useNavigate } from 'react-router-dom';
 
 type LoginFormData = {
   email: string;
@@ -15,6 +16,7 @@ type LoginFormData = {
 
 export function useLogin() {
   const { dispatch } = useAuthContext();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -35,6 +37,7 @@ export function useLogin() {
           payload: { name: userData.name, email: userData.email },
         });
         showMessage.success('User logged in successfully!');
+        navigate('/');
         reset();
       } else {
         console.log('Null ou undefined');

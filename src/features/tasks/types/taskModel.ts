@@ -1,9 +1,8 @@
-
-export type Task = {
-    description: string,
-    completed: boolean,
-    userId: string
-    createdAt: string,
-    updatedAt: string,
-    _id: string
-}
+export type TaskModel = {
+  _id: string;
+  description: string;
+  completed: boolean;
+  userId: string;
+  createdAt: string;
+  updatedAt: string;
+};

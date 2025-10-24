@@ -1,15 +1,19 @@
-type listProps<T> = {
-    items: T[]
-    renderItem: (item: T) => React.ReactNode
-}
+import type { TaskModel } from '../../features/tasks/types/taskModel';
+import styles from './styles.module.css';
 
-export function List<T>({items, renderItem} : listProps<T>){
-   
-   return(
-        <ul>
-            {items.map((item)=>(
-                <li>{renderItem(item)}</li>
-            ))}
-        </ul>
-    )
+type listProps = {
+  items: TaskModel[];
+  renderItem: (item: TaskModel) => React.ReactNode;
+};
+
+export function List({ items, renderItem }: listProps) {
+  return (
+    <div className={styles.list}>
+      {items.map(item => (
+        <div key={item._id} className={styles.item}>
+          {renderItem(item)}
+        </div>
+      ))}
+    </div>
+  );
 }

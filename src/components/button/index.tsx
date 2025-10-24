@@ -2,8 +2,8 @@ import styles from './styles.module.css';
 
 type ButtonProps = {
   children: React.ReactNode;
-  size?: string;
-  variant?: string;
+  size?: 'big' | 'small';
+  variant?: 'blue' | 'cancel';
 } & React.ComponentProps<'button'>;
 
 export function Button({

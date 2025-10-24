@@ -12,43 +12,46 @@ import { useNavigate } from 'react-router-dom';
 export function FormTask() {
   const navigate = useNavigate();
   const {
-      register,
-      handleSubmit,
-      reset,
-      formState: { errors, isSubmitting },
-    } = useForm<taskData>({
-      resolver: yupResolver(taskSchema),
-    });
-  
-  const handleSubmitTask = async (data: taskData) =>{ 
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<taskData>({
+    resolver: yupResolver(taskSchema),
+  });
+
+  const handleSubmitTask = async (data: taskData) => {
     const success = taskRegister(data.description);
     reset();
-    if(await success){
-      navigate('/')
+    if (await success) {
+      navigate('/');
     }
-  
-}
+  };
 
   return (
     <div className={styles.divForm}>
-      
-      <FormTemplate onSubmit={handleSubmit(handleSubmitTask)} children={
-        <>
-        <h2>Create task</h2>
-        <textarea
-          {...register('description')}
-          className={styles.textarea}
-          placeholder='Describe your task..'
-        />
-        {errors.description && <span>{errors.description.message}</span>}
-        <div className={styles.divButton}>
-          <Button size='small' variant='cancel'>
-            Cancel
-          </Button>
-          <Button type='submit' disabled={isSubmitting} size='small'>Save</Button>
-        </div>
-        </>
-      }/>
+      <FormTemplate
+        onSubmit={handleSubmit(handleSubmitTask)}
+        children={
+          <>
+            <h2>Create task</h2>
+            <textarea
+              {...register('description')}
+              className={styles.textarea}
+              placeholder='Describe your task..'
+            />
+            {errors.description && <span>{errors.description.message}</span>}
+            <div className={styles.divButton}>
+              <Button size='small' variant='cancel'>
+                Cancel
+              </Button>
+              <Button type='submit' disabled={isSubmitting} size='small'>
+                Save
+              </Button>
+            </div>
+          </>
+        }
+      />
     </div>
   );
 }
