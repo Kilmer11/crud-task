@@ -74,6 +74,13 @@ p {
   white-space: normal;
 }
 
+label {
+  line-height: 1.2;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
 span {
   font-size: 1.25rem;
   color: var(--warning);
