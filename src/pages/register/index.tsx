@@ -9,7 +9,7 @@ export function Register() {
 
   return (
     <FormTemplate onSubmit={handleSubmit(onSubmit)}>
-      <h2>Entrar</h2>
+      <h2>Cadastrar</h2>
 
       <Input
         {...register('name')}
