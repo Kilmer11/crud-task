@@ -1,33 +1,33 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { taskList } from "../services/taskList";
-import { taskDelete } from "../services/taskDelete";
-import { taskUpdate } from "../services/taskUpdate";
-import type { Task } from "../types/taskModel";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { taskList } from '../services/taskList';
+import { taskDelete } from '../services/taskDelete';
+import { taskUpdate } from '../services/taskUpdate';
+import type { TaskModel } from '../types/taskModel';
 
-export function useTasks(){
-    const [tasks, setTasks] = useState<Task[]>([]);
-    const [loading, setLoading] = useState<boolean>(true)
+export function useTasks() {
+  const [tasks, setTasks] = useState<TaskModel[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
-    const fetchTasks = async () => {
-            const result = await taskList();
-            setTasks(result);
-            setLoading(false);
-    }
+  const fetchTasks = async () => {
+    const result = await taskList();
+    setTasks(result);
+    setLoading(false);
+  };
 
-    const handleDelete = async (id: string) => {
-        await taskDelete(id);
-        fetchTasks();
-    }
+  const handleDelete = async (id: string) => {
+    await taskDelete(id);
+    fetchTasks();
+  };
 
-    const handleUpdate = async (id: string, description: string) => {
-        await taskUpdate(id, description);
-        fetchTasks();
-    }
-    
-    useEffect(() => {
-        fetchTasks();
-    },[])
+  const handleUpdate = async (id: string, description: string) => {
+    await taskUpdate(id, description);
+    fetchTasks();
+  };
 
-    return {tasks, loading, handleDelete, handleUpdate}
+  useEffect(() => {
+    fetchTasks();
+  }, []);
+
+  return { tasks, loading, handleDelete, handleUpdate };
 }

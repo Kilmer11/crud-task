@@ -88,8 +88,7 @@ button {
   transition: background-color 0.2s ease-in-out;
 }
 
-button:hover,
-button:focus {
+button:hover {
   background-color: var(--primary-hover);
   outline: none;
 }

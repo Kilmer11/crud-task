@@ -4,6 +4,7 @@ import { Button } from '../../components/button';
 import { Input } from '../../components/input';
 import { useLogin } from '../../features/auth/hooks/useLogin';
 import { FormTemplate } from '../../template/formTemplate';
+import { Link } from 'react-router-dom';
 
 export function Login() {
   const { register, handleSubmit, onSubmit, errors, isSubmitting } = useLogin();
@@ -36,7 +37,7 @@ export function Login() {
         <a href='#' className={styles.blackLink}>
           Remember me
         </a>
-        <a href='#'>Create a account</a>
+        <Link to={'/register'}>Create a account</Link>
       </section>
 
       <Button disabled={isSubmitting}>Send</Button>

@@ -7,8 +7,8 @@ export const schema = yup.object({
 });
 
 export const taskSchema = yup.object({
-  description: yup.string().required('Description is required').max(300)
-})
+  description: yup.string().required('Description is required').max(300),
+});
 export type FormData = yup.InferType<typeof schema>;
 
 export type taskData = yup.InferType<typeof taskSchema>;
