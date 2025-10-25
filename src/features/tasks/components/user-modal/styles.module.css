@@ -15,8 +15,14 @@
   width: 6rem;
   height: 6rem;
   border-radius: 100%;
-  background-color: var(--primary);
+  background-color: var(--spinner-bg);
   margin: 0 auto;
+  overflow: hidden;
+}
+
+.divImage svg {
+  width: 100%;
+  height: 100%;
 }
 
 .text p {

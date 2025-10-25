@@ -1,3 +1,4 @@
+import { UserRoundIcon } from 'lucide-react';
 import { useAuthContext } from '../../../auth/hooks/useAuthContext';
 import styles from './styles.module.css';
 
@@ -6,7 +7,9 @@ export function UserModal() {
 
   return (
     <div className={styles.userModal}>
-      <div className={styles.divImage}></div>
+      <div className={styles.divImage}>
+        <UserRoundIcon />
+      </div>
       <div className={styles.text}>
         <h4>{state.user.name}</h4>
         <p>{state.user.email}</p>

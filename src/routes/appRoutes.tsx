@@ -5,12 +5,14 @@ import { FormTask } from '../pages/formTask';
 import { PrivateRoute } from './privateRoute';
 
 import { Route, Routes } from 'react-router-dom';
+import { UploadImage } from '../pages/uploadImage';
 
 const routes = [
   { path: '/', element: <Home />, isClosed: false },
   { path: '/login', element: <Login />, isClosed: false },
   { path: '/register', element: <Register />, isClosed: false },
   { path: '/create/task', element: <FormTask />, isClosed: false },
+  { path: '/upload/image', element: <UploadImage />, isClosed: false },
   { path: '*', element: <Home />, isClosed: false },
 ];
 

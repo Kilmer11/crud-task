@@ -4,9 +4,9 @@ import { useRef, useState } from 'react';
 
 type ImageInputProps = {
   onClick?: () => void;
-};
+} & React.ComponentProps<'input'>;
 
-export function ImageInput() {
+export function ImageInput({ onClick, ...props }: ImageInputProps) {
   const imageRef = useRef<HTMLInputElement | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -47,6 +47,7 @@ export function ImageInput() {
         accept='image/*'
         onChange={handleChange}
         hidden
+        {...props}
       />
     </div>
   );

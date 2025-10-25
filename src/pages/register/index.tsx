@@ -2,7 +2,6 @@ import { Button } from '../../components/button';
 import { Input } from '../../components/input';
 import { FormTemplate } from '../../template/formTemplate';
 import { useRegister } from '../../features/auth/hooks/useRegister.ts';
-import { ImageInput } from '../../components/imageInput/index.tsx';
 
 export function Register() {
   const { register, handleSubmit, onSubmit, errors, isSubmitting } =
@@ -11,8 +10,6 @@ export function Register() {
   return (
     <FormTemplate onSubmit={handleSubmit(onSubmit)}>
       <h2>Cadastrar</h2>
-
-      <ImageInput />
 
       <Input
         {...register('name')}
