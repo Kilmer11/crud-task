@@ -3,10 +3,14 @@ import styles from './styles.module.css';
 import { useRef, useState } from 'react';
 
 type ImageInputProps = {
-  onClick?: () => void;
+  onFileChange?: (file: File | null) => void;
 } & React.ComponentProps<'input'>;
 
-export function ImageInput({ onClick, ...props }: ImageInputProps) {
+export function ImageInput({
+  onFileChange,
+  onChange,
+  ...rest
+}: ImageInputProps) {
   const imageRef = useRef<HTMLInputElement | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -25,13 +29,22 @@ export function ImageInput({ onClick, ...props }: ImageInputProps) {
       if (prev) URL.revokeObjectURL(prev);
       return url;
     });
+
+    if (onChange) {
+      onChange(e);
+    }
+
+    if (onFileChange) {
+      onFileChange(file);
+    }
+  }
+
+  function handleFocus() {
+    imageRef.current?.click();
   }
 
   return (
-    <div
-      onClick={() => imageRef.current?.focus()}
-      className={styles.imgContainer}
-    >
+    <div onClick={handleFocus} className={styles.imgContainer}>
       <label htmlFor='image' className={styles.placeholder}>
         {preview ? (
           <img src={preview} alt='preview' className={styles.img} />
@@ -43,11 +56,10 @@ export function ImageInput({ onClick, ...props }: ImageInputProps) {
       <input
         ref={imageRef}
         type='file'
-        id='image'
         accept='image/*'
         onChange={handleChange}
         hidden
-        {...props}
+        {...rest}
       />
     </div>
   );

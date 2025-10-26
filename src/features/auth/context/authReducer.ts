@@ -1,15 +1,19 @@
-import type { AuthState } from '../types/authModel';
+import type { AuthModel } from '../types/authModel';
 import { AuthActionTypes, type AuthActionsModel } from './authActions';
 
 export function AuthReducer(
-  state: AuthState,
+  state: AuthModel,
   action: AuthActionsModel,
-): AuthState {
+): AuthModel {
   switch (action.type) {
     case AuthActionTypes.LOGIN: {
       return {
         ...state,
-        user: { name: action.payload.name, email: action.payload.email },
+        user: {
+          name: action.payload.name,
+          email: action.payload.email,
+          profileUrl: action.payload.profileUrl,
+        },
         isLoading: false,
         isLoggedIn: true,
         error: null,
@@ -19,7 +23,7 @@ export function AuthReducer(
     case AuthActionTypes.LOGOUT: {
       return {
         ...state,
-        user: { name: '', email: '' },
+        user: { name: '', email: '', profileUrl: '' },
         isLoading: false,
         isLoggedIn: false,
         error: null,

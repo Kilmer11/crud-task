@@ -1,7 +1,7 @@
 import { Button } from '../../components/button';
 import { Input } from '../../components/input';
 import { FormTemplate } from '../../template/formTemplate';
-import { useRegister } from '../../features/auth/hooks/useRegister.ts';
+import { useRegister } from '../../features/user/hooks/useRegister.ts';
 
 export function Register() {
   const { register, handleSubmit, onSubmit, errors, isSubmitting } =

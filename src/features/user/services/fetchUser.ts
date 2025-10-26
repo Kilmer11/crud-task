@@ -1,13 +1,12 @@
 import { AxiosError } from 'axios';
 import { api } from '../../../services/axios';
 import type { FetchServiceError } from '../../../types/fetchError';
+import type { User } from '../types/userModel';
 
-export async function authLogin(
-  email: string,
-  password: string,
-): Promise<void> {
+export async function fetchUser(): Promise<User | null> {
   try {
-    await api.post('/auth/login', { email, password });
+    const { data } = await api.get<User>('/users');
+    return data;
   } catch (error) {
     if (error instanceof AxiosError) {
       throw {

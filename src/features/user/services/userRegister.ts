@@ -2,12 +2,17 @@ import { AxiosError } from 'axios';
 import { api } from '../../../services/axios';
 import type { FetchServiceError } from '../../../types/fetchError';
 
-export async function authLogin(
+export async function userRegister(
+  name: string,
   email: string,
   password: string,
 ): Promise<void> {
   try {
-    await api.post('/auth/login', { email, password });
+    await api.post('/auth/register', {
+      name,
+      email,
+      password,
+    });
   } catch (error) {
     if (error instanceof AxiosError) {
       throw {
