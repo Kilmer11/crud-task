@@ -30,6 +30,16 @@ export function AuthReducer(
       };
     }
 
+    case AuthActionTypes.UPLOAD_IMAGE: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          profileUrl: action.payload.profileUrl,
+        },
+      };
+    }
+
     default: {
       return state;
     }

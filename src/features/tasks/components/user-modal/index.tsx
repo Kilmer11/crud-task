@@ -11,7 +11,10 @@ export function UserModal() {
       <Link to={'/upload/image'}>
         <div className={styles.divImage}>
           {state.user.profileUrl ? (
-            <img src={state.user.profileUrl} />
+            <img
+              src={state.user.profileUrl + '?t=' + new Date().getTime()}
+              alt='profile'
+            />
           ) : (
             <UserRoundIcon color='#000' />
           )}

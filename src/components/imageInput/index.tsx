@@ -1,3 +1,4 @@
+import { useAuthContext } from '../../features/auth/hooks/useAuthContext';
 import styles from './styles.module.css';
 
 import { useRef, useState } from 'react';
@@ -11,6 +12,7 @@ export function ImageInput({
   onChange,
   ...rest
 }: ImageInputProps) {
+  const { state } = useAuthContext();
   const imageRef = useRef<HTMLInputElement | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -46,8 +48,14 @@ export function ImageInput({
   return (
     <div onClick={handleFocus} className={styles.imgContainer}>
       <label htmlFor='image' className={styles.placeholder}>
-        {preview ? (
-          <img src={preview} alt='preview' className={styles.img} />
+        {preview || state.user.profileUrl ? (
+          <img
+            src={
+              preview || state.user.profileUrl + '?t=' + new Date().getTime()
+            }
+            alt='preview'
+            className={styles.img}
+          />
         ) : (
           'Choose file'
         )}
