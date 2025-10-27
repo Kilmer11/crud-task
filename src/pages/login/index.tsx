@@ -5,9 +5,14 @@ import { Input } from '../../components/input';
 import { useLogin } from '../../features/auth/hooks/useLogin';
 import { FormTemplate } from '../../template/formTemplate';
 import { Link } from 'react-router-dom';
+import { useAuthContext } from '../../features/auth/hooks/useAuthContext';
+import { Loading } from '../../components/loading';
 
 export function Login() {
+  const { state } = useAuthContext();
   const { register, handleSubmit, onSubmit, errors, isSubmitting } = useLogin();
+
+  if (state.isLoading) return <Loading />;
 
   return (
     <FormTemplate onSubmit={handleSubmit(onSubmit)}>

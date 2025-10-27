@@ -2,12 +2,13 @@ import { AxiosError } from 'axios';
 import { api } from '../../../services/axios';
 import type { FetchServiceError } from '../../../types/fetchError';
 
-export async function authLogin(
-  email: string,
-  password: string,
-): Promise<void> {
+export async function userUploadImage(formData: FormData) {
   try {
-    await api.post('/auth/login', { email, password });
+    await api.post('/users/profile', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
   } catch (error) {
     if (error instanceof AxiosError) {
       throw {

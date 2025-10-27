@@ -4,8 +4,8 @@ import { Button } from '../../components/button';
 import { FormTemplate } from '../../template/formTemplate';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { taskSchema } from '../../validations/register/schema';
-import type { taskData } from '../../validations/register/schema.ts';
+import { taskSchema } from '../../features/user/validations/register-schema.ts';
+import type { taskData } from '../../features/user/validations/register-schema.ts';
 import { taskRegister } from '../../features/tasks/services/taskRegister.ts';
 import { useNavigate } from 'react-router-dom';
 

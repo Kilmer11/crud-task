@@ -1,9 +1,9 @@
 import { showMessage } from '../../../adapters/showMessage';
-import { authRegister } from '../services/authRegister';
-import { AxiosError } from 'axios';
+import { userRegister } from '../services/userRegister';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { schema, type FormData } from '../../../validations/register/schema';
+import { registerSchema, type FormData } from '../validations/register-schema';
+import type { FetchServiceError } from '../../../types/fetchError';
 
 export function useRegister() {
   const {
@@ -12,23 +12,18 @@ export function useRegister() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(registerSchema),
   });
 
   async function onSubmit(data: FormData) {
     showMessage.dismiss();
     try {
-      await authRegister(data.name, data.email, data.password);
+      await userRegister(data.name, data.email, data.password);
       showMessage.success('User registered successfully!');
       reset();
     } catch (error) {
-      if (error instanceof AxiosError) {
-        showMessage.error(
-          `${error.response?.status === 401 && 'Email already exists!'}`,
-        );
-      } else {
-        showMessage.error('Internal error');
-      }
+      const err = error as FetchServiceError;
+      showMessage.error(`${err.message}`);
     }
   }
 

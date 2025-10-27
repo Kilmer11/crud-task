@@ -1,13 +1,12 @@
 import { showMessage } from '../../../adapters/showMessage';
 import { authLogin } from '../services/authLogin';
-import { fetchUser } from '../services/fetchUser';
-import { AuthActionTypes } from '../context/authActions';
+import { fetchUser } from '../../user/services/fetchUser';
 import { useAuthContext } from './useAuthContext';
-import { AxiosError } from 'axios';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { schema, type FormData } from '../validations/login-schema';
+import { loginSchema, type FormData } from '../validations/login-schema';
 import { useNavigate } from 'react-router-dom';
+import type { FetchServiceError } from '../../../types/fetchError';
 
 type LoginFormData = {
   email: string;
@@ -23,31 +22,38 @@ export function useLogin() {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({ resolver: yupResolver(schema) });
+  } = useForm<FormData>({ resolver: yupResolver(loginSchema) });
 
   async function onSubmit(data: LoginFormData) {
+    dispatch({ type: 'REQUEST', payload: { operation: 'LOGIN' } });
     showMessage.dismiss();
+
     try {
       await authLogin(data.email, data.password);
       const userData = await fetchUser();
 
       if (userData) {
         dispatch({
-          type: AuthActionTypes.LOGIN,
-          payload: { name: userData.name, email: userData.email },
+          type: 'LOGIN_SUCCESS',
+          payload: {
+            name: userData.name,
+            email: userData.email,
+            profileUrl: userData.profileUrl,
+          },
         });
         showMessage.success('User logged in successfully!');
         navigate('/');
         reset();
-      } else {
-        console.log('Null ou undefined');
-      }
+      } /* else {
+        dispatch({type: 'FAILURE', payload: {operation:'LOGIN', message: }})
+      } */
     } catch (error) {
-      if (error instanceof AxiosError) {
-        showMessage.error(`${error.response?.data.errors}`);
-      } else {
-        showMessage.error('Internal error');
-      }
+      const err = error as FetchServiceError;
+      showMessage.error(`${err.message}`);
+      dispatch({
+        type: 'FAILURE',
+        payload: { operation: 'LOGIN', message: err.message },
+      });
     }
   }
 

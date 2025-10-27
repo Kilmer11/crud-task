@@ -2,7 +2,7 @@ import { useEffect, useReducer } from 'react';
 import { AuthReducer } from './authReducer';
 import { initialAuthState } from './initialState';
 import { AuthContext } from './authContext';
-import type { AuthState } from '../types/authModel';
+import type { AuthModel } from '../types/authModel';
 
 type AuthProviderProps = {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ type AuthProviderProps = {
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const storedState = localStorage.getItem('authState');
-  const parsedState: AuthState = storedState
+  const parsedState: AuthModel = storedState
     ? JSON.parse(storedState)
     : initialAuthState;
 

@@ -1,12 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export type User = {
-  name: string;
-  email: string;
-};
+import type { User } from '../../user/types/userModel';
 
-export type AuthState = {
+export type AuthModel = {
   user: User;
   isLoggedIn: boolean;
   isLoading: boolean;
-  error: any;
+  error: string | null;
 };

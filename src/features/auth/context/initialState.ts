@@ -1,8 +1,8 @@
-import type { AuthState } from '../types/authModel';
+import type { AuthModel } from '../types/authModel';
 
-export const initialAuthState: AuthState = {
-  user: { name: '', email: '' },
+export const initialAuthState: AuthModel = {
+  user: { name: '', email: '', profileUrl: '' },
   isLoggedIn: false,
   isLoading: false,
-  error: false,
+  error: null,
 };
