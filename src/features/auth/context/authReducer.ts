@@ -6,7 +6,15 @@ export function AuthReducer(
   action: AuthActionsModel,
 ): AuthModel {
   switch (action.type) {
-    case AuthActionTypes.LOGIN: {
+    case AuthActionTypes.REQUEST: {
+      return { ...state, isLoading: true, error: null };
+    }
+
+    case AuthActionTypes.FAILURE: {
+      return { ...state, isLoading: false, error: action.payload.message };
+    }
+
+    case AuthActionTypes.LOGIN_SUCCESS: {
       return {
         ...state,
         user: {
@@ -20,7 +28,7 @@ export function AuthReducer(
       };
     }
 
-    case AuthActionTypes.LOGOUT: {
+    case AuthActionTypes.LOGOUT_SUCCESS: {
       return {
         ...state,
         user: { name: '', email: '', profileUrl: '' },
@@ -30,7 +38,7 @@ export function AuthReducer(
       };
     }
 
-    case AuthActionTypes.UPLOAD_IMAGE: {
+    case AuthActionTypes.UPLOAD_IMAGE_SUCCESS: {
       return {
         ...state,
         user: {

@@ -12,7 +12,7 @@ export function useLogout() {
 
     try {
       await authLogout();
-      dispatch({ type: AuthActionTypes.LOGOUT });
+      dispatch({ type: AuthActionTypes.LOGOUT_SUCCESS });
       showMessage.success('User logged out successfully!');
     } catch (error) {
       const err = error as FetchServiceError;

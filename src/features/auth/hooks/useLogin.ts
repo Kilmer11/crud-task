@@ -33,7 +33,7 @@ export function useLogin() {
 
       if (userData) {
         dispatch({
-          type: AuthActionTypes.LOGIN,
+          type: AuthActionTypes.LOGIN_SUCCESS,
           payload: {
             name: userData.name,
             email: userData.email,

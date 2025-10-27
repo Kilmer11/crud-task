@@ -41,7 +41,7 @@ export function useUploadImage() {
 
       if (userData) {
         dispatch({
-          type: AuthActionTypes.UPLOAD_IMAGE,
+          type: AuthActionTypes.UPLOAD_IMAGE_SUCCESS,
           payload: { profileUrl: userData.profileUrl },
         });
       }
