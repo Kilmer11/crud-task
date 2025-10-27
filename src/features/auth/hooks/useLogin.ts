@@ -1,7 +1,6 @@
 import { showMessage } from '../../../adapters/showMessage';
 import { authLogin } from '../services/authLogin';
 import { fetchUser } from '../../user/services/fetchUser';
-import { AuthActionTypes } from '../context/authActions';
 import { useAuthContext } from './useAuthContext';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -26,14 +25,16 @@ export function useLogin() {
   } = useForm<FormData>({ resolver: yupResolver(loginSchema) });
 
   async function onSubmit(data: LoginFormData) {
+    dispatch({ type: 'REQUEST', payload: { operation: 'LOGIN' } });
     showMessage.dismiss();
+
     try {
       await authLogin(data.email, data.password);
       const userData = await fetchUser();
 
       if (userData) {
         dispatch({
-          type: AuthActionTypes.LOGIN_SUCCESS,
+          type: 'LOGIN_SUCCESS',
           payload: {
             name: userData.name,
             email: userData.email,
@@ -43,10 +44,16 @@ export function useLogin() {
         showMessage.success('User logged in successfully!');
         navigate('/');
         reset();
-      }
+      } /* else {
+        dispatch({type: 'FAILURE', payload: {operation:'LOGIN', message: }})
+      } */
     } catch (error) {
       const err = error as FetchServiceError;
       showMessage.error(`${err.message}`);
+      dispatch({
+        type: 'FAILURE',
+        payload: { operation: 'LOGIN', message: err.message },
+      });
     }
   }
 

@@ -9,7 +9,6 @@ import type { FetchServiceError } from '../../../types/fetchError';
 import { showMessage } from '../../../adapters/showMessage';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../auth/hooks/useAuthContext';
-import { AuthActionTypes } from '../../auth/context/authActions';
 import { fetchUser } from '../services/fetchUser';
 
 export type ImageFormData = {
@@ -29,6 +28,7 @@ export function useUploadImage() {
   });
 
   async function onSubmit(data: ImageFormData) {
+    dispatch({ type: 'REQUEST', payload: { operation: 'UPLOAD_IMAGE' } });
     const image = data.image[0];
     showMessage.dismiss();
 
@@ -41,7 +41,7 @@ export function useUploadImage() {
 
       if (userData) {
         dispatch({
-          type: AuthActionTypes.UPLOAD_IMAGE_SUCCESS,
+          type: 'UPLOAD_IMAGE_SUCCESS',
           payload: { profileUrl: userData.profileUrl },
         });
       }
@@ -50,6 +50,10 @@ export function useUploadImage() {
     } catch (error) {
       const err = error as FetchServiceError;
       showMessage.error(`${err.message}`);
+      dispatch({
+        type: 'FAILURE',
+        payload: { operation: 'UPLOAD_IMAGE', message: err.message },
+      });
     }
   }
 

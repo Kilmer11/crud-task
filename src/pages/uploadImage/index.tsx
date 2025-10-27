@@ -1,11 +1,16 @@
 import { Button } from '../../components/button';
 import { ImageInput } from '../../components/imageInput';
+import { Loading } from '../../components/loading';
+import { useAuthContext } from '../../features/auth/hooks/useAuthContext';
 import { useUploadImage } from '../../features/user/hooks/useUploadImage';
 import { FormTemplate } from '../../template/formTemplate';
 
 export function UploadImage() {
+  const { state } = useAuthContext();
   const { register, handleSubmit, onSubmit, errors, isSubmitting } =
     useUploadImage();
+
+  if (state.isLoading) return <Loading />;
 
   return (
     <FormTemplate onSubmit={handleSubmit(onSubmit)}>

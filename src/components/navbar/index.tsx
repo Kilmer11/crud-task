@@ -1,12 +1,13 @@
 import styles from './styles.module.css';
 
 import { useCallback, useState } from 'react';
-import { Button } from '../../../../components/button';
+import { Button } from '../button';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../../../auth/hooks/useAuthContext';
+import { useAuthContext } from '../../features/auth/hooks/useAuthContext';
 import { LogIn, LogOut } from 'lucide-react';
-import { useLogout } from '../../../auth/hooks/useLogout';
-import { ConfirmModal } from '../../../../components/confirmModal';
+import { useLogout } from '../../features/auth/hooks/useLogout';
+import { ConfirmModal } from '../confirmModal';
+import { Loading } from '../loading';
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -32,6 +33,8 @@ export function Navbar() {
       navigate('/login');
     }
   }, [state.isLoggedIn, openConfirm, navigate]);
+
+  if (state.isLoading) return <Loading />;
 
   return (
     <nav className={styles.navbar}>

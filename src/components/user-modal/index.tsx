@@ -1,5 +1,5 @@
 import { UserRoundIcon } from 'lucide-react';
-import { useAuthContext } from '../../../auth/hooks/useAuthContext';
+import { useAuthContext } from '../../features/auth/hooks/useAuthContext';
 import styles from './styles.module.css';
 import { Link } from 'react-router-dom';
 

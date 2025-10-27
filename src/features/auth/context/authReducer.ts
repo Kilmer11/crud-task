@@ -45,6 +45,8 @@ export function AuthReducer(
           ...state.user,
           profileUrl: action.payload.profileUrl,
         },
+        isLoading: false,
+        error: null,
       };
     }
 
