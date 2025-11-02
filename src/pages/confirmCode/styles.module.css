@@ -1,0 +1,24 @@
+.h2 {
+  margin-bottom: 1.5rem;
+}
+
+.inputDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  margin-bottom: 2rem;
+}
+
+.inputDiv input {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 2.5rem;
+  color: #000;
+  text-align: center;
+
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--primary);
+}
